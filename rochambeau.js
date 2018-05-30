@@ -1,10 +1,10 @@
 // Stores the current player's and computer's choices
-// 0 = Rock, 1 = Paper, 2 = Scissors
+// 0 = Rock, 1 = Paper, 2 = Scissors, 3 = lizard, 4 = spock
 var playerChoice;
 var computerChoice;
 
 // Stores the lables for the choices
-var choices = ["Rock", "Paper", "Scissors"];
+var choices = ["Rock", "Paper", "Scissors", "Lizard", "Spock"];
 
 // Variable to store the score
 // score[0] = wins, score[1] = ties, score[2] = losses
@@ -19,7 +19,7 @@ function storePlayerChoice(choice) {
 
 // Generate computer's random choice
 function storeComputerChoice() {
-    computerChoice = Math.floor(Math.random()*3);
+    computerChoice = Math.floor(Math.random()*5);
     console.log("Computer choice = " + computerChoice);
 }
 
@@ -34,12 +34,40 @@ function playGame(){
         // Rock beats scissors - a win!
         updateScore(0);
         displayGameResult("win")
+    } else if (playerChoice == 0 && computerChoice == 3) {
+        // Rock beats lizard - a win!
+        updateScore(0);
+        displayGameResult("win")
     } else if (playerChoice == 1 && computerChoice == 0) {
-        // Paper beats scissors - a win!
+        // Paper beats rock - a win!
+        updateScore(0);
+        displayGameResult("win")
+    } else if (playerChoice == 1 && computerChoice == 4) {
+        // Paper beats spock - a win!
         updateScore(0);
         displayGameResult("win")
     } else if (playerChoice == 2 && computerChoice == 1) {
         // Scissors beats paper - a win!
+        updateScore(0);
+        displayGameResult("win")
+    } else if (playerChoice == 2 && computerChoice == 3) {
+        // Scissors beats lizard - a win!
+        updateScore(0);
+        displayGameResult("win")
+    } else if (playerChoice == 4 && computerChoice == 2) {
+        // Spock beats scissors - a win!
+        updateScore(0);
+        displayGameResult("win")
+    } else if (playerChoice == 4 && computerChoice == 0) {
+        // Spock beats rock - a win!
+        updateScore(0);
+        displayGameResult("win")
+    } else if (playerChoice == 3 && computerChoice == 4) {
+        // Lizard beats spock - a win!
+        updateScore(0);
+        displayGameResult("win")
+    } else if (playerChoice == 3 && computerChoice == 1) {
+        // Lizard beats paper - a win!
         updateScore(0);
         displayGameResult("win")
     } else {
@@ -89,10 +117,14 @@ function updateScoreBoard(){
 var rockButton = document.getElementById("rock");
 var paperButton = document.getElementById("paper");
 var scissorsButton = document.getElementById("scissors");
+var lizardButton = document.getElementById("lizard");
+var spockButton = document.getElementById("spock");
 var playButton = document.getElementById("play");
 
 // Add the event handlers
 rockButton.addEventListener('click', () => {storePlayerChoice(0)});
 paperButton.addEventListener('click', () => {storePlayerChoice(1)});
 scissorsButton.addEventListener('click', () => {storePlayerChoice(2)});
+lizardButton.addEventListener('click', () => {storePlayerChoice(3)});
+spockButton.addEventListener('click', () => {storePlayerChoice(4)});
 playButton.addEventListener('click', () => {playGame()});
