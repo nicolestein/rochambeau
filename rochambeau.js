@@ -120,6 +120,8 @@ function displayGameResult(result) {
 function updateScore(val) {
     ++score[val];
     console.log("The score is now " + score);
+    document.getElementById("play").disabled = false;
+
 }
 
 function updateMatchScore() {
@@ -158,20 +160,27 @@ var playButton = document.getElementById("play");
 
 // Add the event handlers
 rockButton.addEventListener('click', () => {
-    storePlayerChoice(0)
+    storePlayerChoice(0);    document.getElementById("play").disabled = false;
+
 });
 paperButton.addEventListener('click', () => {
-    storePlayerChoice(1)
+    storePlayerChoice(1);    document.getElementById("play").disabled = false;
+
 });
 scissorsButton.addEventListener('click', () => {
-    storePlayerChoice(2)
+    storePlayerChoice(2);    document.getElementById("play").disabled = false;
+
 });
 lizardButton.addEventListener('click', () => {
-    storePlayerChoice(3)
+    storePlayerChoice(3);    document.getElementById("play").disabled = false;
+
 });
 spockButton.addEventListener('click', () => {
-    storePlayerChoice(4)
+    storePlayerChoice(4);    document.getElementById("play").disabled = false;
+
 });
 playButton.addEventListener('click', () => {
-    playGame()
+    playGame();
+document.getElementById("play").disabled = true;
+
 });
