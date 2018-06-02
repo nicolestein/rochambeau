@@ -160,23 +160,28 @@ var playButton = document.getElementById("play");
 
 // Add the event handlers
 rockButton.addEventListener('click', () => {
-    storePlayerChoice(0);    document.getElementById("play").disabled = false;
+    storePlayerChoice(0);
+    document.getElementById("play").disabled = false;
 
 });
 paperButton.addEventListener('click', () => {
-    storePlayerChoice(1);    document.getElementById("play").disabled = false;
+    storePlayerChoice(1);
+    document.getElementById("play").disabled = false;
 
 });
 scissorsButton.addEventListener('click', () => {
-    storePlayerChoice(2);    document.getElementById("play").disabled = false;
+    storePlayerChoice(2);
+    document.getElementById("play").disabled = false;
 
 });
 lizardButton.addEventListener('click', () => {
-    storePlayerChoice(3);    document.getElementById("play").disabled = false;
+    storePlayerChoice(3);
+    document.getElementById("play").disabled = false;
 
 });
 spockButton.addEventListener('click', () => {
-    storePlayerChoice(4);    document.getElementById("play").disabled = false;
+    storePlayerChoice(4);
+    document.getElementById("play").disabled = false;
 
 });
 playButton.addEventListener('click', () => {
