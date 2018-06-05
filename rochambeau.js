@@ -3,12 +3,23 @@
 var playerChoice;
 var computerChoice;
 
-// Stores the lables for the choices
-var choices = ["Rock", "Paper", "Scissors", "Lizard", "Spock"];
+/**
+ * Represents the choices
+ */
+var choices = {
+    ROCK: 0,
+    PAPER: 1,
+    SCISSORS: 2,
+    LIZARD: 3,
+    SPOCK: 4
+}
 
-// Variable to store the score
-// score[0] = wins, score[1] = ties, score[2] = losses
-var score = [0, 0, 0];
+// Stores the score.
+var score = {
+    wins: 0,
+    losses: 0,
+    ties: 0
+};
 
 // Stores match score that will be used for the match score
 // Matchscore[0] = match wins, matchScore[1] = match losses
@@ -31,64 +42,53 @@ function playGame() {
     // Here is the game ruleset algorithm
     if (playerChoice == computerChoice) {
         // We have a tie!
-        updateScore(1);
-        displayGameResult("tie");
-        updateMatchScore();
-    } else if (playerChoice == 0 && computerChoice == 2) {
+        ++score.ties;
+        displayGameResult("tie")
+    } else if (playerChoice == choices.ROCK && computerChoice == choices.SCISSORS) {
         // Rock beats scissors - a win!
-        updateScore(0);
-        displayGameResult("win");
-        updateMatchScore();
-    } else if (playerChoice == 0 && computerChoice == 3) {
+        ++score.wins;
+        displayGameResult("win")
+    } else if (playerChoice == choices.ROCK && computerChoice == choices.LIZARD) {
         // Rock beats lizard - a win!
-        updateScore(0);
-        displayGameResult("win");
-        updateMatchScore();
-    } else if (playerChoice == 1 && computerChoice == 0) {
+        ++score.wins;
+        displayGameResult("win")
+    } else if (playerChoice == choices.PAPER && computerChoice == choices.ROCK) {
         // Paper beats rock - a win!
-        updateScore(0);
-        displayGameResult("win");
-        updateMatchScore();
-    } else if (playerChoice == 1 && computerChoice == 4) {
+        ++score.wins;
+        displayGameResult("win")
+    } else if (playerChoice == choices.PAPER && computerChoice == choices.SPOCK) {
         // Paper beats spock - a win!
-        updateScore(0);
-        displayGameResult("win");
-        updateMatchScore();
-    } else if (playerChoice == 2 && computerChoice == 1) {
+        ++score.wins;
+        displayGameResult("win")
+    } else if (playerChoice == choices.SCISSORS && computerChoice == choices.PAPER) {
         // Scissors beats paper - a win!
-        updateScore(0);
-        displayGameResult("win");
-        updateMatchScore();
-    } else if (playerChoice == 2 && computerChoice == 3) {
+        ++score.wins;
+        displayGameResult("win")
+    } else if (playerChoice == choices.SCISSORS && computerChoice == choices.LIZARD) {
         // Scissors beats lizard - a win!
-        updateScore(0);
-        displayGameResult("win");
-        updateMatchScore();
-    } else if (playerChoice == 4 && computerChoice == 2) {
+        ++score.wins;
+        displayGameResult("win")
+    } else if (playerChoice == choices.SPOCK && computerChoice == choices.SCISSORS) {
         // Spock beats scissors - a win!
-        updateScore(0);
-        displayGameResult("win");
-        updateMatchScore();
-    } else if (playerChoice == 4 && computerChoice == 0) {
+        ++score.wins;
+        displayGameResult("win")
+    } else if (playerChoice == choices.SPOCK && computerChoice == choices.ROCK) {
         // Spock beats rock - a win!
-        updateScore(0);
-        displayGameResult("win");
-        updateMatchScore();
-    } else if (playerChoice == 3 && computerChoice == 4) {
+        ++score.wins;
+        displayGameResult("win")
+    } else if (playerChoice == choices.LIZARD && computerChoice == choices.SPOCK) {
         // Lizard beats spock - a win!
-        updateScore(0);
-        displayGameResult("win");
-        updateMatchScore();
-    } else if (playerChoice == 3 && computerChoice == 1) {
+        ++score.wins;
+        displayGameResult("win")
+    } else if (playerChoice == choices.LIZARD && computerChoice == choices.PAPER) {
         // Lizard beats paper - a win!
-        updateScore(0);
-        displayGameResult("win");
-        updateMatchScore();
+        ++score.wins;
+        displayGameResult("win")
     } else {
         // All other combinations are losses
-        updateScore(2);
-        displayGameResult("lose");
-        updateMatchScore();
+        ++score.losses;
+        displayGameResult("lose")
+
     }
 }
 
@@ -116,13 +116,6 @@ function displayGameResult(result) {
     updateMatchScoreBoard();
 }
 
-// Updates the score
-function updateScore(val) {
-    ++score[val];
-    console.log("The score is now " + score);
-    document.getElementById("play").disabled = false;
-
-}
 
 function updateMatchScore() {
     if (score[0] == 2) {
@@ -139,10 +132,10 @@ function updateMatchScore() {
 }
 
 // Function for displaying the score
-function updateScoreBoard() {
-    document.getElementById("wins").textContent = score[0];
-    document.getElementById("losses").textContent = score[2];
-    document.getElementById("ties").textContent = score[1];
+function displayScoreBoard(winsId, lossesId, tiesId) {
+    document.getElementById(winsId).textContent = score.wins;
+    document.getElementById(lossesId).textContent = score.losses;
+    document.getElementById(tiesId).textContent = score.ties;
 }
 
 function updateMatchScoreBoard() {
@@ -186,6 +179,6 @@ spockButton.addEventListener('click', () => {
 });
 playButton.addEventListener('click', () => {
     playGame();
-document.getElementById("play").disabled = true;
+    document.getElementById("play").disabled = true;
 
 });
