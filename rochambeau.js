@@ -5,26 +5,31 @@ function Player(){
     this.choice = null;
 }
 
-var player = new Player();
-var computer = new Player();
+var Rochambeau = {
 
-/**
- * Represents the choices
- */
-var choices = {
+    choices: {
     ROCK: 0,
     PAPER: 1,
     SCISSORS: 2,
     LIZARD: 3,
     SPOCK: 4
-}
+},
 
-// Stores the score.
-var score = {
+    score: {
     wins: 0,
     losses: 0,
     ties: 0
-};
+},
+    results: {
+    WIN: 1,
+    TIE: 0,
+    LOSS: -1,
+    }
+
+player: new Player(),
+computer: new Player()
+
+}
 
 // Stores match score that will be used for the match score
 // Matchscore[0] = match wins, matchScore[1] = match losses
