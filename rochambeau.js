@@ -1,7 +1,12 @@
-// Stores the current player's and computer's choices
-// 0 = Rock, 1 = Paper, 2 = Scissors, 3 = lizard, 4 = spock
-var playerChoice;
-var computerChoice;
+/**
+ * Represents a player
+ */
+function Player(){
+    this.choice = null;
+}
+
+var player = new Player();
+var computer = new Player();
 
 /**
  * Represents the choices
@@ -24,63 +29,65 @@ var score = {
 // Stores match score that will be used for the match score
 // Matchscore[0] = match wins, matchScore[1] = match losses
 var matchScore = [0, 0];
+
 // Stores the player's choice, then call's the function for storing the computer's choice
 function storePlayerChoice(choice) {
-    playerChoice = choice;
-    console.log("My choice = " + choice);
+    player.choice = choice;
+    console.log("My choice = " + player.choice);
     storeComputerChoice();
 }
 
-// Generate computer's random choice
+// Generate the computer's random choice
 function storeComputerChoice() {
-    computerChoice = Math.floor(Math.random() * 5);
-    console.log("Computer choice = " + computerChoice);
+    // Generate computer's random choice
+    computer.choice = Math.floor(Math.random()*3);
+    console.log("Computer choice = " + computer.choice);
 }
 
 // This is the function for playing the game
 function playGame() {
     // Here is the game ruleset algorithm
-    if (playerChoice == computerChoice) {
+    if (player.choice == computer.choice) {
         // We have a tie!
         ++score.ties;
         displayGameResult("tie")
-    } else if (playerChoice == choices.ROCK && computerChoice == choices.SCISSORS) {
+    } else if (player.choice == choices.ROCK && computer.choice == choices.SCISSORS) {
         // Rock beats scissors - a win!
         ++score.wins;
         displayGameResult("win")
-    } else if (playerChoice == choices.ROCK && computerChoice == choices.LIZARD) {
+    } else if (player.choice == choices.ROCK && computer.choice == choices.LIZARD) {
         // Rock beats lizard - a win!
         ++score.wins;
         displayGameResult("win")
-    } else if (playerChoice == choices.PAPER && computerChoice == choices.ROCK) {
+    } else if (player.choice == choices.PAPER && computer.choice == choices.ROCK) {
         // Paper beats rock - a win!
         ++score.wins;
         displayGameResult("win")
-    } else if (playerChoice == choices.PAPER && computerChoice == choices.SPOCK) {
+    } else if (player.choice == choices.PAPER && computer.choice == choices.SPOCK) {
         // Paper beats spock - a win!
         ++score.wins;
         displayGameResult("win")
-    } else if (playerChoice == choices.SCISSORS && computerChoice == choices.PAPER) {
+    } else if (player.choice == choices.SCISSORS && computer.choice == choices.PAPER) {
         // Scissors beats paper - a win!
         ++score.wins;
         displayGameResult("win")
-    } else if (playerChoice == choices.SCISSORS && computerChoice == choices.LIZARD) {
+    } else if (player.choice == choices.SCISSORS && computer.choice == choices.LIZARD) {
         // Scissors beats lizard - a win!
         ++score.wins;
         displayGameResult("win")
-    } else if (playerChoice == choices.SPOCK && computerChoice == choices.SCISSORS) {
+    } else if (player.choice == choices.SPOCK && computer.choice == choices.SCISSORS) {
         // Spock beats scissors - a win!
         ++score.wins;
         displayGameResult("win")
-    } else if (playerChoice == choices.SPOCK && computerChoice == choices.ROCK) {
+    } else if (player.choice == choices.SPOCK && computer.choice == choices.ROCK) {
         // Spock beats rock - a win!
         ++score.wins;
         displayGameResult("win")
-    } else if (playerChoice == choices.LIZARD && computerChoice == choices.SPOCK) {
+    } else if (player.choice == choices.LIZARD && computer.choice == choices.SPOCK) {
         // Lizard beats spock - a win!
         ++score.wins;
         displayGameResult("win")
-    } else if (playerChoice == choices.LIZARD && computerChoice == choices.PAPER) {
+    } else if (player.choice == choices.LIZARD && computer.choice == choices.PAPER) {
         // Lizard beats paper - a win!
         ++score.wins;
         displayGameResult("win")
