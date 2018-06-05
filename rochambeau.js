@@ -1,11 +1,16 @@
-/**
- * Represents a player
- */
 function Player(){
     this.choice = null;
 }
 
 var Rochambeau = {
+    player: new Player(),
+    computer: new Player()
+    var rockButton = document.getElementById("rock");
+    var paperButton = document.getElementById("paper");
+    var scissorsButton = document.getElementById("scissors");
+    var lizardButton = document.getElementById("lizard");
+    var spockButton = document.getElementById("spock");
+    var playButton = document.getElementById("play");
 
     choices: {
     ROCK: 0,
@@ -26,8 +31,6 @@ var Rochambeau = {
     LOSS: -1,
     }
 
-player: new Player(),
-computer: new Player()
 
      // Stores the player's choice, then call's the function for storing the computer's choice
     storePlayerChoice: function(choice) {
@@ -152,13 +155,6 @@ function updateMatchScoreBoard() {
     document.getElementById("Match Losses").textContent = matchScore[1];
 }
 
-// The button elements
-var rockButton = document.getElementById("rock");
-var paperButton = document.getElementById("paper");
-var scissorsButton = document.getElementById("scissors");
-var lizardButton = document.getElementById("lizard");
-var spockButton = document.getElementById("spock");
-var playButton = document.getElementById("play");
 
 // Add the event handlers
 rockButton.addEventListener('click', () => {
