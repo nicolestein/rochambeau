@@ -29,25 +29,22 @@ var Rochambeau = {
 player: new Player(),
 computer: new Player()
 
+     // Stores the player's choice, then call's the function for storing the computer's choice
+    storePlayerChoice: function(choice) {
+        this.player.choice = choice;
+        console.log("My choice = " + this.player.choice);
+        this.storeComputerChoice();
+    },
+
+    // Generate the computer's random choice
+    storeComputerChoice: function() {
+        this.computer.choice = Math.floor(Math.random() * 5);
+    }
 }
 
 // Stores match score that will be used for the match score
 // Matchscore[0] = match wins, matchScore[1] = match losses
 var matchScore = [0, 0];
-
-// Stores the player's choice, then call's the function for storing the computer's choice
-function storePlayerChoice(choice) {
-    player.choice = choice;
-    console.log("My choice = " + player.choice);
-    storeComputerChoice();
-}
-
-// Generate the computer's random choice
-function storeComputerChoice() {
-    // Generate computer's random choice
-    computer.choice = Math.floor(Math.random()*3);
-    console.log("Computer choice = " + computer.choice);
-}
 
 // This is the function for playing the game
 function playGame() {
