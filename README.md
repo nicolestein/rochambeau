@@ -22,6 +22,10 @@ Description
     There are two score boards on is the current score which includes wins losses and ties. The other score board is a match score board that takes the best of three games and tells the user how many times they have one a match or the computer has won a match. 
     
 
-A link to the Trello baord.
+A link to the GitHub Repo.
 
     https://github.com/nicolestein/rochambeau.git
+    
+A Link to the Trello Board.
+
+    https://trello.com/b/6RDzF2la/rochambeau
